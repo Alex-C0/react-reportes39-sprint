@@ -1,23 +1,66 @@
-# Reportes Sprint 1
+# Sistema de Reportes Ciudadanos (React)
 
-Este proyecto es un **esqueleto funcional** de una app React que permite visualizar y agregar reportes.
+## Descripción
 
-## Funcionalidad
+Este proyecto es una aplicación web desarrollada con **React** que permite registrar reportes ciudadanos, como problemas en la vía pública (baches, alumbrado, etc.).  
 
-- Lista de reportes iniciales.
-- Formulario interactivo para agregar nuevos reportes en tiempo real.
-- Cada reporte tiene un título y una descripción.
-- No se ha trabajado en estética, solo en funcionamiento.
+La aplicación permite visualizar reportes existentes y agregar nuevos mediante un formulario interactivo.
 
-## Cómo usarlo
+El desarrollo del proyecto se realizó utilizando una metodología basada en **Sprint**, organizando el trabajo en etapas para facilitar el desarrollo progresivo del sistema.
 
-1. Clonar el repositorio:
+---
+
+## Tecnologías utilizadas
+
+- React
+- JavaScript
+- HTML
+- CSS
+- Node.js
+- Vite
+
+---
+
+## Funcionalidades
+
+- Visualización de reportes ciudadanos
+- Formulario para registrar nuevos reportes
+- Renderizado dinámico de componentes
+- Gestión de estado utilizando React Hooks (`useState`)
+
+---
+
+## Desarrollo por Sprint
+
+### Sprint 1
+Se realizó la configuración inicial del proyecto utilizando React.  
+Se creó la estructura básica de la aplicación y se implementó el componente principal.
+
+### Sprint 2
+Se implementó la funcionalidad para registrar reportes mediante un formulario, utilizando manejo de estado con `useState`.
+
+### Sprint 3
+Se realizaron mejoras en la interfaz y organización del código, además de optimizar la presentación de los reportes en pantalla.
+
+---
+
+## Instalación y ejecución
+
+1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/reportes-sprint1.git
-cd reportes-sprint1
-npm install
-npm run dev
+git clone https://github.com/Alex-C0/react-reportes39-sprint.git
 ```
 
-2. Abrir en el navegador la dirección que aparece (por ejemplo http://localhost:5173/) y agregar reportes usando el formulario.
+2. Entrar al proyecto
+```cd mi-app```
+
+3. Instalar dependencias
+```npm istall```
+
+4. Ejecutar el programa
+```npm run dev```
+
+Autor
+
+Alejandro Cortés Lara
