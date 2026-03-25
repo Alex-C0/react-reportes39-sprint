@@ -34,13 +34,14 @@ El desarrollo del proyecto se realizó utilizando una metodología basada en **S
 
 ### Sprint 1
 Se realizó la configuración inicial del proyecto utilizando React.  
-Se creó la estructura básica de la aplicación y se implementó el componente principal.
+Se creó la estructura básica de la aplicación, el componente principal y la visualización inicial de reportes.
 
 ### Sprint 2
-Se implementó la funcionalidad para registrar reportes mediante un formulario, utilizando manejo de estado con `useState`.
-
-### Sprint 3
-Se realizaron mejoras en la interfaz y organización del código, además de optimizar la presentación de los reportes en pantalla.
+Se implementaron mejoras en la funcionalidad del sistema, incluyendo:
+- Validaciones en el formulario
+- Eliminación de reportes
+- Persistencia de datos con `localStorage`
+- Mejora en la interfaz y organización del código
 
 ---
 
