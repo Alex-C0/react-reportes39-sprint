@@ -1,38 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Reporte from './Reporte';
 
 function App() {
-  // Estado para los reportes
-  const [reportes, setReportes] = useState([
-    { titulo: "Luz apagada en calle X", descripcion: "El farol de la calle X no funciona." },
-    { titulo: "Bache en avenida Y", descripcion: "Un bache grande que requiere atención." }
-  ]);
+  
+  const [reportes, setReportes] = useState(() => {
+  const data = localStorage.getItem("reportes");
+  return data ? JSON.parse(data) : [];
+});;
 
-  // Estado para los inputs del formulario
+  
   const [titulo, setTitulo] = useState('');
   const [descripcion, setDescripcion] = useState('');
+  
 
-  // Función para agregar un nuevo reporte
+  useEffect(() => {
+  localStorage.setItem("reportes", JSON.stringify(reportes));
+  }, [reportes]);
+
   const agregarReporte = (e) => {
-    e.preventDefault(); // evita que se recargue la página
-    setReportes([...reportes, { titulo, descripcion }]);
-    setTitulo(''); // limpiar input
-    setDescripcion('');
-  };
+  e.preventDefault();
+
+  if (titulo.trim() === '' || descripcion.trim() === '') {
+    alert("Todos los campos son obligatorios");
+    return;
+  }
+
+  setReportes([...reportes, { titulo, descripcion }]);
+  setTitulo('');
+  setDescripcion('');
+};
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h1>Reportes del Sprint 1</h1>
+    
+    <div style={{
+        padding: '20px',
+        fontFamily: 'Arial',
+        maxWidth: '600px',
+        margin: 'auto',
+        backgroundColor: '#ffffff',
+        color: '#333',
+        borderRadius: '10px'
+     }}>
+      <h1 style={{ textAlign: 'center', color: '#333' }}>Reportes Ciudadanos</h1>
 
-      {/* Formulario para agregar nuevos reportes */}
-      <form onSubmit={agregarReporte} style={{ marginBottom: '20px' }}>
+      
+      <form
+        onSubmit={agregarReporte}
+        style={{
+        marginBottom: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px'
+        }}>
+
         <input
           type="text"
           placeholder="Título"
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
           required
-          style={{ marginRight: '10px', padding: '5px' }}
+          style={{ padding: '8px' }}
         />
         <input
           type="text"
@@ -40,15 +67,23 @@ function App() {
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
           required
-          style={{ marginRight: '10px', padding: '5px' }}
+          style={{ padding: '8px' }}
         />
-        <button type="submit" style={{ padding: '5px 10px' }}>Agregar Reporte</button>
+        <button type="submit" style={{ padding: '8px' }}>Agregar Reporte</button>
       </form>
 
-      {/* Lista de reportes */}
-      {reportes.map((r, index) => (
-        <Reporte key={index} titulo={r.titulo} descripcion={r.descripcion} />
-      ))}
+      
+    {reportes.map((r, index) => (
+    <Reporte
+      key={index}
+      titulo={r.titulo}
+      descripcion={r.descripcion}
+      onEliminar={() => {
+      const nuevos = reportes.filter((_, i) => i !== index);
+      setReportes(nuevos);
+     }}
+     />
+     ))}  
     </div>
   );
 }
